@@ -199,7 +199,7 @@ module mips_ALU(
 		`ALU_LE:	alu_out <= (alu_op1 <= alu_op2 ? 1 : 0);
 		`ALU_GT:	alu_out <= (alu_op1 >  alu_op2 ? 1 : 0);
 		`ALU_GE:	alu_out <= (alu_op1 >= alu_op2 ? 1 : 0);
-		default:	alu_out <= 4'hf;
+		default:	alu_out <= 32'd0;
 		endcase
 	end
 endmodule
