@@ -54,9 +54,9 @@ module testbench;
 
    // The MIPS core
    mips_core core(.clk(clk), .inst_addr(pc), .inst(inst),
-		  .inst_excpt(inst_excpt), .mem_addr(mem_addr),
+		  .mem_addr(mem_addr),
 		  .mem_data_in(mem_data_in), .mem_data_out(mem_data_out),
-		  .mem_write_en(mem_write_en), .mem_excpt(mem_excpt),
+		  .mem_write_en(mem_write_en),
 		  .halted(halted), .rst_b(rst_b));
 
    // Memory

@@ -142,17 +142,17 @@ module mips_core(/*AUTOARG*/
     // Generate control signals
     mips_control CU(reg_dst, alu_src, mem_to_reg, jr, jump, branch,
                               mem_we, rd_we, alu_sel,
-                              dcd_op, dcd_funct, rt_num); 
+                              dcd_op, dcd_funct, dcd_rt); 
 
     // Register file
     regfile register_file(rs_data, rt_data,
-                          rs_num, rt_num, (reg_dst? rd_num : rt_num), 
+                          dcd_rs, dcd_rt, (reg_dst? dcd_rd : dcd_rt), 
                           (mem_to_reg? mem_data_out : alu_out),
                           rd_we, clk, rst_b, halted);
 
     // Execute
     mips_ALU ALU(alu_out, zero,
-                 alu_op1, alu_op2, alu_sel,
+                 rs_data, rt_data, alu_sel,
                  dcd_shamt);
 
     // Syscall unit
